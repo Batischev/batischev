@@ -1,12 +1,38 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
-  "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>My first web page</title>
- </head>
- <body>
-  <h1>Page title</h1>
-  <p>Main text.</p>
- </body>
+<head>
+	<meta charset="utf-8">
+	<title>Snakes</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Audiowide">
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ocanvas/2.6.0/ocanvas.min.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/snakefield.js"></script>
+	<script type="text/javascript" src="js/gameboard.js"></script>
+	<script type="text/javascript" src="js/datastore.js"></script>
+	<script type="text/javascript" src="js/results.js"></script>
+	<script type="text/javascript">
+	    var _gaq = _gaq || [];
+	    _gaq.push(['_setAccount', 'UA-46814492-2']);
+	    _gaq.push(['_trackPageview']);
+	    (function() {
+	        var ga = document.createElement('script'); 
+		    ga.type = 'text/javascript'; 
+		    ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	        var s = document.getElementsByTagName('script')[0]; 
+		    s.parentNode.insertBefore(ga, s);
+	    })();
+	</script>
+</head>
+<body>
+	<div id="content">
+		<header><h1>Snakes</h1></header>
+		<div id="game">
+			<canvas id="canvas" width="800" height="600"></canvas>
+		</div>
+		<footer><div id="copyright">Game by <a href="https://github.com/Batischev/batischev">Sources</a>.</div></div>
+	</div>
+</body>
 </html>
