@@ -3,46 +3,53 @@
 //-------------------------------------------------------------------------
 
 /**
-* mmLogo - логотип игры
-* mmDifficultyText - строка сложности
-* buttons - кнопки меню
-* menu - содержит логотип игры, кнопки меню и выбрр сложности
-* 
-* @var mmLogo, 
-* @var mmDifficultyText, 
-* @var buttons, 
-* @var menu;
-*/
+ * mmLogo - логотип игры
+ * mmDifficultyText - строка сложности
+ * buttons - кнопки меню
+ * menu - содержит логотип игры, кнопки меню и выбрр сложности
+ * 
+ * @var mmLogo, 
+ * @var mmDifficultyText, 
+ * @var buttons, 
+ * @var menu;
+ */
 
 /**
-* Работа со свойством {@link $initMenu}
-* 
-* Отрисовка меню
-*
-*/
+ * Работа со свойством {@link $initMenu}
+ * 
+ * Отрисовка меню
+ *
+ */
 
 function initMenu() {
+  
     mmLogo = canvas.display.image({
         x: canvas.width / 2,
         y: 100,
         image: "images/logo.png",
-        origin: { x: "center", y: "top" },
+        origin: {
+            x: "center",
+            y: "top"
+        },
         height: 97,
-        width: 387			
+        width: 387
     });
 
     mmDifficultyText = canvas.display.text({
-        origin: { x: "center", y: "top" },
-	text: "Choose difficulty",
-	x: canvas.width / 2,
-	y: 350,
-	font: "20px Audiowide",
-	fill: "rgb(13, 199, 13)"
+        origin: {
+            x: "center",
+            y: "top"
+        },
+        text: "Choose difficulty",
+        x: canvas.width / 2,
+        y: 350,
+        font: "20px Audiowide",
+        fill: "rgb(13, 199, 13)"
     });
 
     buttons = [];
-    for (i=0; i<4; i++){
-	    
+    for (i = 0; i < 4; i++) {
+
         /**
          * Содержит кнопки меню
          * 
@@ -56,7 +63,7 @@ function initMenu() {
          *  difficulty: i
          *  });
          */
-		
+
         /**
          * Текст содержит надписи с выбором сложности
          * 
@@ -69,32 +76,32 @@ function initMenu() {
          *  fill: "rgb(13, 199, 13)"
          * });
          */
-		 
+
         rect.addChild(text);
-        rect.bind("mouseenter", 
-        function(){
-            canvas.mouse.cursor("pointer");
-	    this.fill = "rgb(47, 69, 48)";
-	    this.stroke = "1px rgb(13, 199, 13)";
-	    this.redraw();
-        }).bind("mouseleave", 
-        function(){
-	    canvas.mouse.cursor("default");
-	    this.fill = "rgb(40, 49, 40)";
-	    this.stroke = "1px rgb(14, 161, 14)";
-	    this.redraw();
-        }).bind("click tap",
-        function(){
-	    startGame(this.difficulty);
-        })
-	buttons.push(rect);
+        rect.bind("mouseenter",
+            function() {
+                canvas.mouse.cursor("pointer");
+                this.fill = "rgb(47, 69, 48)";
+                this.stroke = "1px rgb(13, 199, 13)";
+                this.redraw();
+            }).bind("mouseleave",
+            function() {
+                canvas.mouse.cursor("default");
+                this.fill = "rgb(40, 49, 40)";
+                this.stroke = "1px rgb(14, 161, 14)";
+                this.redraw();
+            }).bind("click tap",
+            function() {
+                startGame(this.difficulty);
+            })
+        buttons.push(rect);
     }
 
     menu = canvas.scenes.create("menu", function() {
         this.add(mmLogo);
-	this.add(mmDifficultyText);
-	for (i = 0; i < buttons.length; i++) {
-	    this.add(buttons[i]);
-	}
+        this.add(mmDifficultyText);
+        for (i = 0; i < buttons.length; i++) {
+            this.add(buttons[i]);
+        }
     });
 }
