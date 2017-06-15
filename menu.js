@@ -8,7 +8,10 @@
 * buttons - кнопки меню
 * menu - содержит логотип игры, кнопки меню и выбрр сложности
 * 
-* @var mmLogo, mmDifficultyText, buttons, menu;
+* @var mmLogo, 
+* @var mmDifficultyText, 
+* @var buttons, 
+* @var menu;
 */
 
 /**
