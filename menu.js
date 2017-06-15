@@ -6,12 +6,16 @@
  * mmLogo - логотип игры
  * mmDifficultyText - строка сложности
  * buttons - кнопки меню
- * menu - содержит логотип игры, кнопки меню и выбрр сложности
+ * menu - содержит логотип игры, кнопки меню и выбор сложности
+ * rect - содержит кнопки меню
+ * text - текст содержит надписи с выбором сложности
  * 
  * @var mmLogo, 
  * @var mmDifficultyText, 
  * @var buttons, 
- * @var menu;
+ * @var menu,
+ * @var rect,
+ * @var text;
  */
 
 /**
@@ -49,34 +53,25 @@ function initMenu() {
 
     buttons = [];
     for (i = 0; i < 4; i++) {
+        var rect = canvas.display.rectangle({
+            width: 100,
+            height: 40,
+            x: 185 + 120 * i,
+            y: 400,
+            fill: "rgb(40, 49, 40)",
+            stroke: "1px rgb(14, 161, 14)",
+            difficulty: i
+        });
 
-        /**
-         * Содержит кнопки меню
-         * 
-         * @var rect = canvas.display.rectangle({
-         *  width: 100,
-         *  height: 40,
-         *  x: 185 + 120 * i,
-         *  y: 400,
-         *  fill: "rgb(40, 49, 40)",
-         *  stroke: "1px rgb(14, 161, 14)",
-         *  difficulty: i
-         *  });
-         */
-
-        /**
-         * Текст содержит надписи с выбором сложности
-         * 
-         *  var text = canvas.display.text({
-         *  x: 50,
-         *  y: 20,
-         *  origin: { x: "center", y: "center" },
-         *  font: "15px Audiowide",
-         *  text: difficultyStrings[i],
-         *  fill: "rgb(13, 199, 13)"
-         * });
-         */
-
+        var text = canvas.display.text({
+            x: 50,
+            y: 20,
+            origin: { x: "center", y: "center" },
+            font: "15px Audiowide",
+            text: difficultyStrings[i],
+            fill: "rgb(13, 199, 13)"
+        });
+      
         rect.addChild(text);
         rect.bind("mouseenter",
             function() {
@@ -93,7 +88,7 @@ function initMenu() {
             }).bind("click tap",
             function() {
                 startGame(this.difficulty);
-            })
+            });
         buttons.push(rect);
     }
 
